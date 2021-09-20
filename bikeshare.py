@@ -65,24 +65,24 @@ def load_data(city, month, day):
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['End Time'] = pd.to_datetime(df['End Time'])
 
-    #Month to Start Time - New column called month
+    # Month to Start Time - New column called month
     df['month'] = df['Start Time'].dt.month
 
-    #filter by month
+    # Filter by month
 
     if month != 'all':
     
-    # months to integer
+    # Months to integer
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
 
-    # filtered month - New dataframe
+    # Filtered month - New dataframe
         df = df[df['month'] == month]
 
     # Day from start Time - New column called month
     df['day_of_week'] = df['Start Time'].dt.day_name()
 
-    # filter by day
+    # Filter by day
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
@@ -195,7 +195,7 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-#User choice - 5 lines of raw data or not
+# User choice - 5 lines of raw data or not
 
 runs = 0
 def raw_data(df):
